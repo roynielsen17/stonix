@@ -71,7 +71,7 @@ STONIXVERSION = '0.9.41'
 
 # The report server should be a string containing a valid FQDN or IP address
 # for the host that STONIX should upload it's run report XML data to.
-REPORTSERVER = None
+REPORTSERVER = "localhost"
 
 # If you are not using a central report server then set the value of
 # sendreports to False. Please note no quotes.
@@ -124,18 +124,18 @@ OSXSHORTWARNINGBANNER = None
 # Variable Type: String
 # Here you can specify the FQDN of your mail relay server
 # Use the convention: hostname.domain
-MAILRELAYSERVER = None
+MAILRELAYSERVER = "localhost"
 
 # Variable Type: String
 # STONIX Error Message Source Address
 # Set this to the email address that STONIX error messages should appear to
 # come from.
-STONIXERR = None
+STONIXERR = "root@localhost"
 
 # Variable Type: String
 # STONIX Error Message Destination
 # Set the email address that STONIX error messages should be delivered to.
-STONIXDEVS = None
+STONIXDEVS = "root@localhost"
 
 # Variable Type: String
 # Set the URL and port of your proxy server if one is in use.
@@ -567,3 +567,15 @@ session     required      pam_unix.so
 session     optional      pam_sss.so
 session     optional      pam_krb5.so
 '''
+
+'''
+Comma separated list of Applications allowed by the firewall.
+Most applications end with .app and must contain the full 
+path to the application.
+'''
+ALLOWEDAPPS = None
+
+'''
+For a public environment, LANLLOGROTATE = None
+'''
+LANLLOGROTATE = None

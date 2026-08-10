@@ -175,7 +175,7 @@ class SecureMDNS(Rule):
             self.DisableAvahi = self.initCi(datatype, avahikey,
                                             avahiinstructions, avahidefault)
 
-            self.configparser = configparser.SafeConfigParser()
+            self.configparser = configparser.ConfigParser()
 
             self.confavahidict = {'use-ipv6':
                                   {'section': 'server', 'val': 'no'},
