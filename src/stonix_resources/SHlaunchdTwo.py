@@ -27,7 +27,7 @@ import os
 import re
 import pwd
 
-from plistlib import readPlist
+from plistlib import load
 from stonix_resources.launchctl import LaunchCtl
 from stonix_resources.logdispatcher import LogPriority as lp
 from stonix_resources.ServiceHelperTemplate import ServiceHelperTemplate
@@ -104,7 +104,7 @@ class SHlaunchdTwo(ServiceHelperTemplate):
            not self.isValidServicePath(service):
             return serviceName
 
-        servicePlist = readPlist(service)
+        servicePlist = load(service)
         serviceName = servicePlist["Label"]
         serviceName = serviceName.strip()
 

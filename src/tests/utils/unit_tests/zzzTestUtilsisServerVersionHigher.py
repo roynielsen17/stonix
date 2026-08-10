@@ -30,6 +30,11 @@ unittest work (python -m unittest -v <testname, without filename extension>)
 import sys
 import unittest
 
+from pathlib import Path
+
+parent_dir = Path(__file__).parent.parent.parent.parent.parent
+sys.path.append(str(parent_dir))
+
 from src.tests.lib.logdispatcher_lite import LogPriority
 from src.stonix_resources.stonixutilityfunctions import isServerVersionHigher \
                                                      as isServerVersionHigher

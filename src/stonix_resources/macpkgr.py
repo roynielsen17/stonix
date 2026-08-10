@@ -553,7 +553,7 @@ class MacPkgr(object):
                     # Make sure we have a valid file on the filesystem
                     if os.path.isfile(afile_path):
                         try:
-                            plist = plistlib.readPlist(afile_path)
+                            plist = plistlib.load(afile_path)
                         except Exception as err:
                             self.logger.log(LogPriority.DEBUG, "Exception " +
                                                                "trying to use" +

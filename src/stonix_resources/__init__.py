@@ -28,6 +28,12 @@
 #               Modified Date     $Date: 2013/1/9 15:18:00 $
 # ============================================================================ #
 
+import sys
+from pathlib import Path
+
+parent_dir = Path(__file__).parent.parent
+sys.path.append(str(parent_dir))
+
 from stonix_resources import cli
 from stonix_resources import configurationitem
 from stonix_resources import environment

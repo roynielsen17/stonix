@@ -217,7 +217,7 @@ version = """ + str(STONIXVERSION) + """
         """
 
         progconfig = {}
-        config = configparser.SafeConfigParser()
+        config = configparser.ConfigParser()
         euid = os.geteuid()
 
         try:
@@ -225,7 +225,7 @@ version = """ + str(STONIXVERSION) + """
                 # this will NOT alter any existing stonix.conf file
                 open(self.configpath, 'a').close()
                 os.chmod(self.configpath, 0o644)
-            config.readfp(open(self.configpath))
+            config.read_file(open(self.configpath))
         except IOError as err:
             print(("ERROR: " + __name__ + ": line number " + str(inspect.currentframe().f_lineno) + ": " + type(err).__name__ + ": " + str(err)))
             sys.exit(1)

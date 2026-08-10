@@ -298,7 +298,7 @@ class MacBuildLib(object):
 
         '''
         try:
-            mypl = pl.readPlist(targetFile)
+            mypl = pl.load(targetFile)
             mypl[targetKey] = newValue
             pl.writePlist(mypl, targetFile)
         except Exception:
