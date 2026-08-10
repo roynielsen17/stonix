@@ -29,7 +29,7 @@ import ctypes
 import shutil
 import filecmp
 import unittest
-from distutils.version import LooseVersion
+from packaging.version import parse as LooseVersion
 
 sys.path.append("../../../..")
 from src.stonix_resources.FileStateManager import FileStateManager

@@ -75,7 +75,7 @@ import urllib.request, urllib.error, urllib.parse
 from grp import getgrgid
 from pwd import getpwuid
 from types import *
-from distutils.version import LooseVersion
+from packaging.version import parse as LooseVersion
 from subprocess import call, Popen, PIPE, STDOUT
 from stonix_resources.logdispatcher import LogPriority
 

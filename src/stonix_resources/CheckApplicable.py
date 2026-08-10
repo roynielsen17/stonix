@@ -29,7 +29,7 @@ Created on Aug 24, 2010
 '''
 
 import re
-from distutils.version import LooseVersion
+from packaging.version import parse as LooseVersion
 from .logdispatcher import LogPriority
 
 
@@ -155,7 +155,7 @@ class CheckApplicable(object):
         The family and os keys may be combined. Note that specifying a family
         will mask the behavior of the more specific os key.
         
-        Note that version comparison is done using the distutils.version
+        Note that version comparison is done using the packaging.version
         module. If the stonix environment module returns a 3 place version
         string then you need to provide a 3 place version string. I.E. in this
         case 10.11 only matches 10.11.0 and does not match 10.11.3 or 10.11.5.

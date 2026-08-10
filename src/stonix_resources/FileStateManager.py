@@ -12,7 +12,7 @@ import datetime
 import optparse
 import traceback
 
-from distutils.version import LooseVersion
+from packaging.version import parse as LooseVersion
 
 from stonix_resources.logdispatcher import LogPriority as lp
 
@@ -645,7 +645,7 @@ class FileStateManager(object):
 
     #--------------------------------------------------------------------------
     # Quick sort algorithm for sorting a list of version number as defined by
-    # the distutils.version.LooseVersion
+    # the packaging.version.parse as LooseVersion
     def partition(self, data=[], pivot=""):
         '''Partitioning data based on the passed in pivot value.  Partition defined
         from the generic computer science QSORT algorithm varient.
