@@ -1070,7 +1070,7 @@ def assemble_suite(framework=True, rule=True, utils=True, unit=True,
     if rule and not modules:
         # Add the test for every rule and rule for every test... test.
         anotherTest = ConsistencyCheck()
-        suite.addTests(unittest.makeSuite(anotherTest.getTest()))
+        suite.addTests(unittest.TestLoader().loadTestsFromTestCase(anotherTest.getTest()))
 
     if rule:
         ruleDictionary.ruleReport()
