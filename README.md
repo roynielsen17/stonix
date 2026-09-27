@@ -2,7 +2,7 @@
 
 This is a fork of the [LANL Stonix](git@github.com:CSD-Public/stonix.git) project.
 
-Due to the number of projects I'm working on, I will not have a lot of time to work on it, the restoration process will be slow going.  Unless I can find contributors!
+Due to the number of projects I'm working on, I will not have a lot of time to work on it, the restoration process will be slow going.  Unless I can find contributors/collaborators.
 
 Stonix now runs at the command line with python3, but has not been validated to work yet.  
 
