@@ -10,7 +10,8 @@ The GUI will need some not insignificant work to port from PyQt4 to PySide6.
 
 The origional project was tested on multiple versions of each of RedHat, CentOS, Debian, Ubuntu and macOS.  A DevOps infrastructure and pipeline is in the planning stage and needs to be built to automate this process.
 
-License
+---
+## License
 
 Los Alamos National Security, LLC owns the copyright to "stonix". The license for the software is BSD with standard clauses regarding modifications and redistribution.
 
@@ -29,10 +30,9 @@ Additionally, redistribution and use in source and binary forms, with or without
 
 THIS SOFTWARE IS PROVIDED BY LOS ALAMOS NATIONAL SECURITY, LLC AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL LOS ALAMOS NATIONAL SECURITY, LLC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
----------------------
+---
 
-0. Overview
------------
+## 0. Overview
 
   STONIX is an operating system configuration hardening tool for Unix and Unix
   like (e.g. Linux) operating systems. This tool implements a hybrid of
@@ -55,9 +55,9 @@ THIS SOFTWARE IS PROVIDED BY LOS ALAMOS NATIONAL SECURITY, LLC AND CONTRIBUTORS 
   Close derivatives of these operating systems should be well supported,
   more distant cousins less so.
   
-1. Documentation
-----------------
+## 1. Documentation
 
+```
   README	This file
   INSTALL	Installation instructions
   PACKAGERS	Information to packagers
@@ -67,9 +67,9 @@ THIS SOFTWARE IS PROVIDED BY LOS ALAMOS NATIONAL SECURITY, LLC AND CONTRIBUTORS 
   ChangeLog	Detailed list of changes
   TODO		Known bugs and to-do listing
   DEVELOPERS Detailed documentation for people who want to contribute to STONIX
-  
-2. Version numbering
---------------------
+```
+
+## 2. Version numbering
 
   STONIX uses a Major.Minor.Release versioning scheme.
 
@@ -77,8 +77,7 @@ THIS SOFTWARE IS PROVIDED BY LOS ALAMOS NATIONAL SECURITY, LLC AND CONTRIBUTORS 
   is made to ensure that the code is production ready, but the features are not
   yet complete and there will be functionality changes in future revisions.
 
-3. Reporting bugs
------------------
+## 3. Reporting bugs
 
   When reporting issues in STONIX please fully document the specific
   functionality that is causing a problem. We will likely need sample
@@ -87,8 +86,7 @@ THIS SOFTWARE IS PROVIDED BY LOS ALAMOS NATIONAL SECURITY, LLC AND CONTRIBUTORS 
 
   Report your issue via the STONIX github issue tracker.
 
-4. Known Issues
----------------
+## 4. Known Issues
 
    1. Developers have observed behavior on CentOS where DisableThumbnailers
    returns non-compliant after the fix is run. This appears to be due to
