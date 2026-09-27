@@ -6,7 +6,7 @@ Due to the number of projects I'm working on, I will not have a lot of time to w
 
 Stonix now runs at the command line with python3, but has not been validated to work yet.  
 
-The GUI will need some not insignificant work to port from PyQt4 to PySide6.
+The GUI will need some not insignificant work to port from PyQt5 to PySide6.
 
 The origional project was tested on multiple versions of each of RedHat, CentOS, Debian, Ubuntu and macOS.  A DevOps infrastructure and pipeline is in the planning stage and needs to be built to automate this process.
 
