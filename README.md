@@ -10,7 +10,7 @@ The GUI will need some not insignificant work to port from PyQt4 to PySide6.
 
 The origional project was tested on multiple versions of each of RedHat, CentOS, Debian, Ubuntu and macOS.  A DevOps infrastructure and pipeline is in the planning stage and needs to be built to automate this process.
 
-##License
+License
 
 Los Alamos National Security, LLC owns the copyright to "stonix". The license for the software is BSD with standard clauses regarding modifications and redistribution.
 
