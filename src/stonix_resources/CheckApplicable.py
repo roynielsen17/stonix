@@ -73,19 +73,19 @@ class CheckApplicable(object):
                 else:
                     keysSuccess.append(False)
                     continue
-                if key is 'type' and value in ['black', 'white']:
+                if key == 'type' and value in ['black', 'white']:
                     valueSuccess.append(True)
                     continue
-                if key is 'family' and isinstance(value, list):
+                if key == 'family' and isinstance(value, list):
                     valueSuccess.append(True)
                     continue
-                if key is 'os' and isinstance(value, dict):
+                if key == 'os' and isinstance(value, dict):
                     valueSuccess.append(True)
                     continue
-                if key is 'noroot' and isinstance(value, bool):
+                if key == 'noroot' and isinstance(value, bool):
                     valueSuccess.append(True)
                     continue
-                if key is 'fisma' and value in ['low', 'medium', 'high']:
+                if key == 'fisma' and value in ['low', 'medium', 'high']:
                     valueSuccess.append(True)
                     continue
                 valueSuccess.append(False)
@@ -103,7 +103,7 @@ class CheckApplicable(object):
         referenced when this method is called and should be set by classes
         inheriting from the rule class including sub-template rules and
         concrete rule implementations.
-        
+
         The format for the applicable property is a dictionary. The dictionary
         will be interpreted as follows:
         Key    Values        Meaning
@@ -144,7 +144,7 @@ class CheckApplicable(object):
                             always causes the method to return true. The
                             default only takes affect if the family and os keys
                             are not defined.
-        
+
         An Example dictionary might look like this:
         applicable = {'type': 'white',
                            'family': Linux,
@@ -171,6 +171,7 @@ class CheckApplicable(object):
 
         '''
         applies = False
+        applicable = {}
 
         self.logger.log(LogPriority.DEBUG,
                         'Dictionary is: ' + str(applicableDict))
@@ -251,7 +252,7 @@ class CheckApplicable(object):
             myversion = self.myosversion
         # Process version and up
         if '+' in rangeList:
-            assert len(rangeList) is 2, "Wrong number of entries for a +"
+            assert len(rangeList) == 2, "Wrong number of entries for a +"
             if rangeList[1] == '+':
                 baseversion = rangeList[0]
             else:
@@ -262,7 +263,7 @@ class CheckApplicable(object):
                 return False
         # Process version and lower
         elif '-' in rangeList:
-            assert len(rangeList) is 2, "Wrong number of entries for a -"
+            assert len(rangeList) == 2, "Wrong number of entries for a -"
             if rangeList[1] == '-':
                 baseversion = rangeList[0]
             else:
@@ -273,7 +274,7 @@ class CheckApplicable(object):
                 return False
         # Process inclusive range
         elif 'r' in rangeList:
-            assert len(rangeList) is 3, "Wrong number of entries for a range"
+            assert len(rangeList) == 3, "Wrong number of entries for a range"
             vertmp = rangeList
             vertmp.remove('r')
             if LooseVersion(vertmp[0]) > LooseVersion(vertmp[1]):
@@ -300,7 +301,7 @@ class CheckApplicable(object):
         '''Check if the passed in level matches the class variable level.
         
         @author: David Kennel, Roy Nielsen
-        
+        '''
         applies = False
         clevel = ""
         slevel = ""
@@ -308,34 +309,32 @@ class CheckApplicable(object):
             clevel = checkLevel
         else:
             try:
-                clevel = self.applicable['fisma']
+                clevel = self.getSystemFismaLevel()
             except KeyError:
                 self.logger.log(LogPriority.DEBUG, traceback.format_exc())
                 self.logger.log(LogPriority.DEBUG, "Can't acquire a valid checkLevel...")
                 raise ValueError('checkLevel invalid: valid values are low, med, high')
-        
+
         if systemLevel is not None and systemLevel in ['high', 'med', 'low']:
-             slevel = systemLevel
+            slevel = systemLevel
         else:
             try:
                 slevel = self.environ.getsystemfismacat()
             except KeyError:
                 self.logger.log(LogPriority.DEBUG, traceback.format_exc())
                 self.logger.log(LogPriority.DEBUG, "Can't acquire a valid checkLevel...")
+                raise ValueError('systemLevel invalid: valid values are low, med, high')
 
-        :param checkLevel:  (Default value = None)
-        :param systemLevel:  (Default value = None)
-        :raises if: slevel
-        :raises pass: 
-        :raises elif: slevel
-        :raises if: clevel
-        :raises applies: False
-        :raises elif: slevel
-        :raises if: clevel in
-        :raises applies: False
+        if slevel == 'high':
+            pass
+        elif slevel == 'med':
+            if clevel == 'high':
+                applies = False
+        elif slevel == 'low':
+            if clevel in ['high', 'med']:
+                applies = False
 
-        '''
-        pass
+        return applies
 
     def getOsFamily(self):
         return self.myosfamily
